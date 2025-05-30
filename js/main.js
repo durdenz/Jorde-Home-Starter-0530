@@ -359,31 +359,58 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// G4 Added 052825
-// ---- Update Element Height and Width Data in Hero Section
+// G4 Updated 053025
+// ---- Changed to display the x,y coords of/in each span in Hero Section
 // 
-let heroElement = document.getElementById("heroSection");
-let heightSpan = document.getElementById("heightSpan");
-let widthSpan = document.getElementById("widthSpan");
 
+function updateTLSpanLocation() {
+  let TLSpan = document.getElementById("TLSpan");
+  let TLx = TLSpan.getBoundingClientRect().left;
+  let TLy = TLSpan.getBoundingClientRect().top;
 
-
-function updateHeroDimensions() {
-  let rect = heroElement.getBoundingClientRect();
-  // let heroHeight = heroElement.offsetHeight;
-  // let heroWidth = heroElement.clientWidth;
-  let heroHeight = rect.bottom;
-  let heroWidth = rect.right;
-
-  // console.log("top: "+rect.top+" , bottom: "+rect.bottom+" , left: "+rect.left+" , right "+rect.right);
-
-  heightSpan.innerHTML = heroHeight.toFixed(2).toString();
-  widthSpan.innerHTML = heroWidth.toFixed(2).toString();
+  TLSpan.textContent = TLx.toFixed(2).toString()+","+TLy.toFixed(2).toString();
 }
 
-document.addEventListener('scroll', updateHeroDimensions);
+function updateTRSpanLocation() {
+  let TRSpan = document.getElementById("TRSpan");
+  let TRx = TRSpan.getBoundingClientRect().left;
+  let TRy = TRSpan.getBoundingClientRect().top;
 
-document.getElementsByTagName("BODY")[0].onload = function() {updateHeroDimensions()};
+  TRSpan.textContent = TRx.toFixed(2).toString()+","+TRy.toFixed(2).toString();
+}
 
-document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroDimensions()};
+function updateBLSpanLocation() {
+  let BLSpan = document.getElementById("BLSpan");
+  let BLx = BLSpan.getBoundingClientRect().left;
+  let BLy = BLSpan.getBoundingClientRect().top;
+
+  BLSpan.textContent = BLx.toFixed(2).toString()+","+BLy.toFixed(2).toString();
+}
+
+function updateBRSpanLocation() {
+  let BRSpan = document.getElementById("BRSpan");
+  let BRx = BRSpan.getBoundingClientRect().left;
+  let BRy = BRSpan.getBoundingClientRect().top;
+
+  BRSpan.textContent = BRx.toFixed(2).toString()+","+BRy.toFixed(2).toString();
+}
+
+function updateHeroSpans() {
+  updateTLSpanLocation();
+  updateTRSpanLocation();
+  updateBLSpanLocation();
+  updateBRSpanLocation();
+}
+
+// Add EventListeners
+// document.addEventListener('scroll', updateTLSpanLocation);
+document.addEventListener('scroll', updateHeroSpans);
+
+// Add onload callback functions
+// document.getElementsByTagName("BODY")[0].onload = function() {updateTLSpanLocation()};
+document.getElementsByTagName("BODY")[0].onload = function() {updateHeroSpans()};
+
+// Add onresize callback functions
+// document.getElementsByTagName("BODY")[0].onresize = function() {updateTLSpanLocation()};
+document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroSpans()};
 
