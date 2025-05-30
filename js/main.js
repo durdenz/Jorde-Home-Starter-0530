@@ -415,4 +415,3 @@ document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroSpans(
 
 // End of Hero Section Span Display Coords code
 // ========================
-
