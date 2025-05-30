@@ -157,7 +157,7 @@ function isInViewport(element) {
     let rect = element.getBoundingClientRect();
     return (
         ((rect.top >= 0) && (rect.top <= window.innerHeight)) ||
-        ((rect.bottom >=0) && (rect.bottom <= window.innerHeight))
+        ((rect.top < 0) && (rect.bottom >=0))
     );
 }
 
@@ -173,6 +173,7 @@ function updateCSYear() {
         csyear.innerHTML = "2023";
         console.log("cs2023 in Viewport");
     } else {
+        // csyear.innerHTML = "";
         console.log("Nothing in Viewport");
     }
 }
