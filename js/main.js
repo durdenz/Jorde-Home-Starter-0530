@@ -358,7 +358,9 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach(section => observer.observe(section));
 });
 
-
+// ==================================
+// Beginning of Hero Section Span Display Coords code
+//
 // G4 Updated 053025
 // ---- Changed to display the x,y coords of/in each span in Hero Section
 // 
@@ -403,14 +405,14 @@ function updateHeroSpans() {
 }
 
 // Add EventListeners
-// document.addEventListener('scroll', updateTLSpanLocation);
 document.addEventListener('scroll', updateHeroSpans);
 
 // Add onload callback functions
-// document.getElementsByTagName("BODY")[0].onload = function() {updateTLSpanLocation()};
 document.getElementsByTagName("BODY")[0].onload = function() {updateHeroSpans()};
 
 // Add onresize callback functions
-// document.getElementsByTagName("BODY")[0].onresize = function() {updateTLSpanLocation()};
 document.getElementsByTagName("BODY")[0].onresize = function() {updateHeroSpans()};
+
+// End of Hero Section Span Display Coords code
+// ========================
 
