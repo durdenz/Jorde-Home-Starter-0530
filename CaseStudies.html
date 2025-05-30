@@ -180,13 +180,8 @@ function updateCSYear() {
 
 // Add EventListeners
 document.addEventListener('scroll', updateCSYear);
-
-// Add onload callback functions
-document.getElementsByTagName("BODY")[0].onload = function() {updateCSYear()};
-
-// Add onresize callback functions
-document.getElementsByTagName("BODY")[0].onresize = function() {updateCSYear()};
-
-  </script>
+document.addEventListener('onload', updateCSYear);
+document.addEventListener('onresize', updateCSYear);
+</script>
 </body>
 </html>
